@@ -1,0 +1,42 @@
+alphabets ='abcdefghijklmnopqrstuvwxyz'
+
+def encrypt():
+
+    word = input("enter any word encrypt:")
+    key=int(input("enter the key"))
+    n = len(word)
+    outp=""
+
+    for i in range(n):
+        ch =word[i]
+        location=alphabets.find(ch)
+        new_location= (location+key) %26
+        outp +=alphabets[new_location]
+
+    print(outp)
+
+def decrypt():
+    word = input("enter any word decrypt:")
+    key =int(input("enter the key"))
+    n =len(word)
+    outp= ""
+
+    for i in range(n):
+        ch =word[i]
+        location=alphabets.find(ch)
+        new_location= (location-key) %26
+        outp +=alphabets[new_location]
+
+    print(outp)
+
+
+while (1):
+    choice = int(input("\n 1.Encryption: \n 2.Decryption: \n 3.EXIT"))
+    if choice == 1:
+        encrypt()
+    elif choice == 2:
+        decrypt()
+    elif choice == 3:
+        exit()
+    else:
+        print("Choose correct choice")
